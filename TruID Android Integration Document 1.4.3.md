@@ -15,12 +15,10 @@ You need to perform the following steps.
     
     ```
 
-    
-
 2. Add the dependency
     ```css
             dependencies {
-                implementation 'com.github.truid-ai.TruId-Android:sdk:1.4.22'
+                implementation 'com.github.truid-ai.TruId-Android:sdk:1.4.3'
                 //for networking
                 implementation 'com.amitshekhar.android:android-networking:1.0.2'
     
