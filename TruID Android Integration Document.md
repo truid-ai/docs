@@ -4,57 +4,57 @@ You need to perform the following steps.
 
 1.  Add it in your root build.gradle at the end of repositories:
 
-	```css
-	allprojects {
-		repositories {
-			...
-			jcenter()
-			maven { url 'https://jitpack.io' }
-		}
-	}
-	
-	```
+    ```css
+    allprojects {
+        repositories {
+            ...
+            jcenter()
+            maven { url 'https://jitpack.io' }
+        }
+    }
+    
+    ```
 2.  Add the dependency
-	```css
-			dependencies {
-				implementation 'com.github.truid-ai.TruId-Android:sdk:1.4.22'
-				//for networking
-				implementation 'com.amitshekhar.android:android-networking:1.0.2'
-	
-			}
-	```
+    ```css
+            dependencies {
+                implementation 'com.github.truid-ai.TruId-Android:sdk:1.4.22'
+                //for networking
+                implementation 'com.amitshekhar.android:android-networking:1.0.2'
+    
+            }
+    ```
 3. Generate token using your API Key. Ideally this step should be performed on serverside. Here is a java snippet to give the idea of how to do it.
-	```kotlin
-	private fun generateToken(
-	  apiKey: String,
-	  onSuccess: ((token: String) -> Unit),
-	  onError: ((error: String) -> Unit)
-	) {
-	  val defaultErrorMessage = "Error while generating token."
+    ```kotlin
+    private fun generateToken(
+      apiKey: String,
+      onSuccess: ((token: String) -> Unit),
+      onError: ((error: String) -> Unit)
+    ) {
+      val defaultErrorMessage = "Error while generating token."
 
-	    AndroidNetworking.post("https://release-api.truid.ai/generate-token/")
-	    .addHeaders("Authorization", "Api-Key $apiKey")
-	    .setTag("get-token")
-	    .setPriority(Priority.HIGH)
-	    .build()
-	    .getAsJSONObject(object: JSONObjectRequestListener {
-	      override fun onResponse(response: JSONObject?) {
-	        val token = response?.getString("token")
+        AndroidNetworking.post("https://release-api.truid.ai/generate-token/")
+        .addHeaders("Authorization", "Api-Key $apiKey")
+        .setTag("get-token")
+        .setPriority(Priority.HIGH)
+        .build()
+        .getAsJSONObject(object: JSONObjectRequestListener {
+          override fun onResponse(response: JSONObject?) {
+            val token = response?.getString("token")
 
-	          if (token == null) onError(defaultErrorMessage)
-	            else {
-	              Log.i(TruID.LOG_TAG, "API Token: $token")
-	                onSuccess(token)
-	            }
-	      }
+              if (token == null) onError(defaultErrorMessage)
+                else {
+                  Log.i(TruID.LOG_TAG, "API Token: $token")
+                    onSuccess(token)
+                }
+          }
 
-	      override fun onError(anError: ANError?) {
-	        onError(anError?.errorBody ?: defaultErrorMessage)
-	      }
-	    })
-	}
-	```
-	Ideally this api call should be performed on your serverside and here it should be calling the server to keep the api key safe
+          override fun onError(anError: ANError?) {
+            onError(anError?.errorBody ?: defaultErrorMessage)
+          }
+        })
+    }
+    ```
+    Ideally this api call should be performed on your serverside and here it should be calling the server to keep the api key safe
 
 4. Launch the activity by passing the generated token in it
 
@@ -86,7 +86,7 @@ You need to perform the following steps.
                val status: String? = data?.getStringExtra("STATUS")
                val sessionID: String? = data?.getStringExtra("SESSION_ID")
    
-             	// getting the verification data
+                 // getting the verification data
                AndroidNetworking.get("https://release-api.truid.ai/sessions/${sessionID}/")
                    .build()
                    .getAsJSONObject(object: JSONObjectRequestListener {
@@ -113,4 +113,3 @@ You need to perform the following steps.
    ```
 
    
-
