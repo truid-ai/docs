@@ -130,22 +130,21 @@ You need to perform the following steps.
                     //passing token and configuring what steps to run here
                     authenticateUser.launch(AuthenticateWithTruID.Input(
                       token = token,
-                      
-                      enableFaceLiveness = steps["Face Liveness"]!!,
-                      enableOnDeviceLiveness = steps["Local Liveness"]!!,
-                      enableDocumentCapture = steps["Document Capture"]!!,
-                      enableExtractData = steps["Local OCR"]!!,
-                      enableDocumentAuthenticity = steps["Document Auth"]!!,
-                      enableDocumentBacksideCapture = steps["Backside Capture"]!!,
-                      enableIDtoSelfieMatching = steps["ID To Selfie"]!!,
-                      enableVerisysVerification = steps["Verisys Verification"]!!,
-                      enableFingerSelection = steps["Finger Selection"]!!,
-                      enableFingerprintCapture = steps["Fingerprint Capture"]!!,
-                      enablePersonalInformationVerification = steps["Personal Info"]!!,
-                      enableMobileNumberVerification = steps["Mobile Number"]!!,
-                      enableUndertaking = steps["Undertaking"]!!,
-                      enableAccountOptions = steps["Accounts Options"]!!,
-                      enableAgentVerification = steps["Agent Verification"]!!,
+                      enableFaceLiveness = true,
+                      enableOnDeviceLiveness = true,
+                      enableDocumentCapture = true,
+                      enableExtractData = true,
+                      enableDocumentAuthenticity = true,
+                      enableDocumentBacksideCapture = false,
+                      enableIDtoSelfieMatching = true,
+                      enableVerisysVerification = false,
+                      enableFingerSelection = false,
+                      enableFingerprintCapture = true,
+                      enablePersonalInformationVerification = false,
+                      enableMobileNumberVerification = false,
+                      enableUndertaking = false,
+                      enableAccountOptions = false,
+                      enableAgentVerification = false
                       
                       displayHelpScreens = true,
                       fingerprintOptions = FingerprintDetectionHandler.FingerprintOptions(
