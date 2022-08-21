@@ -18,7 +18,7 @@ You need to perform the following steps.
 2. Add the dependency
     ```css
             dependencies {
-                implementation 'com.github.truid-ai.TruId-Android:sdk:1.5'
+                implementation 'com.github.truid-ai.TruId-Android:sdk:1.5.1'
                 //for networking
                 implementation 'com.amitshekhar.android:android-networking:1.0.2'
     
@@ -129,23 +129,31 @@ You need to perform the following steps.
                     TruID.setFailedColor(249, 78, 78)
                     //passing token and configuring what steps to run here
                     authenticateUser.launch(AuthenticateWithTruID.Input(
-                         token = token,
-                         enableFaceLiveness = true,
-                         enableOnDeviceLiveness = true,
-                         enableDocumentCapture = true,
-                         enableExtractData = true,
-                         enableDocumentAuthenticity = true,
-                         enableDocumentBacksideCapture = false,
-                         enableIDtoSelfieMatching = true,
-                         enableVerisysVerification = false,
-                         enableFingerSelection = false,
-                         enableFingerprintCapture = true,
-                         enablePersonalInformationVerification = false,
-                         enableMobileNumberVerification = false,
-                         enableUndertaking = false,
-                         enableAccountOptions = false,
-                         enableAgentVerification = false
-                     ))
+                      token = token,
+                      
+                      enableFaceLiveness = steps["Face Liveness"]!!,
+                      enableOnDeviceLiveness = steps["Local Liveness"]!!,
+                      enableDocumentCapture = steps["Document Capture"]!!,
+                      enableExtractData = steps["Local OCR"]!!,
+                      enableDocumentAuthenticity = steps["Document Auth"]!!,
+                      enableDocumentBacksideCapture = steps["Backside Capture"]!!,
+                      enableIDtoSelfieMatching = steps["ID To Selfie"]!!,
+                      enableVerisysVerification = steps["Verisys Verification"]!!,
+                      enableFingerSelection = steps["Finger Selection"]!!,
+                      enableFingerprintCapture = steps["Fingerprint Capture"]!!,
+                      enablePersonalInformationVerification = steps["Personal Info"]!!,
+                      enableMobileNumberVerification = steps["Mobile Number"]!!,
+                      enableUndertaking = steps["Undertaking"]!!,
+                      enableAccountOptions = steps["Accounts Options"]!!,
+                      enableAgentVerification = steps["Agent Verification"]!!,
+                      
+                      displayHelpScreens = true,
+                      fingerprintOptions = FingerprintDetectionHandler.FingerprintOptions(
+                          fingersToScan = FingerprintDetectionHandler.FingersToScan.LEFT_HAND,
+                          minimumNIST = 40,
+                          displayFingerprintResults = false
+                      )
+                  ))
    
                    },
        onError = { error ->
@@ -155,4 +163,11 @@ You need to perform the following steps.
      )
    }
    ```
+
+You can also optionally enable or disable specific steps by passing boolean values. Furthermore you can disable help screens by passing false to the disableHelpScreen parameter.
+
+If you are using the fingerprint detection feature you can specify fingerprint options by passing it a FingerprintOptions object which takes the following paramters
+1. fingersToScan: Specify the fingers you want to scan. The options are RIGHT_THUMB, RIGHT_4_FINGERS, RIGHT_HAND, LEFT_THUMB, LEFT_4_FINGERS, LEFT_HAND. We assume you have passed false to the enableFingerSelection paramter in order to only allow the user to scan the specified fingers.
+2. minimumNIST: The minimum NIST score. The user is prompted to retry if the scan was of a lower quaity than what was specified
+3. displayFingerprintResults: If set to true the user is shown the scan results before they move onto the next step
 
