@@ -1,6 +1,7 @@
 ## Getting Data From Webhook
   1. Login to TruID dashboard using your username and password. 
-  2. Specify the webhook url in the update profile section of the dashboard
+  2. Specify the webhook url in the update profile section of the dashboard.<img width="1440" alt="image" src="https://user-images.githubusercontent.com/12184975/190359806-86d6a2f1-2545-4017-a722-76e118578c5e.png">
+
   3. You will start receiving webhook notifications on the specified endpoint. The structure of data you will receive from the webhook is shared below
 
   ``` json
