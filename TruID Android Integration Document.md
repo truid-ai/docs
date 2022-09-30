@@ -144,8 +144,8 @@ You need to perform the following steps.
                       enableMobileNumberVerification = false,
                       enableUndertaking = false,
                       enableAccountOptions = false,
-                      enableAgentVerification = false
-                      
+                      enableAgentVerification = false,
+                      enableReportScreen = true,
                       displayHelpScreens = true,
                       fingerprintOptions = FingerprintDetectionHandler.FingerprintOptions(
                           fingersToScan = FingerprintDetectionHandler.FingersToScan.LEFT_HAND,
