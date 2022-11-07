@@ -18,7 +18,7 @@ You need to perform the following steps.
 2. Add the dependency
     ```css
             dependencies {
-                implementation 'com.github.truid-ai.TruId-Android:sdk:1.6.2'
+                implementation 'com.github.truid-ai.TruId-Android:sdk:1.7.0'
                 //for networking
                 implementation 'com.amitshekhar.android:android-networking:1.0.2'
     
@@ -27,7 +27,7 @@ You need to perform the following steps.
     If you don't need the fingerprint capture functionality you can use the slim version of the sdk for small apk sizes
     ```css
             dependencies {
-                implementation 'com.github.truid-ai.TruId-Android:sdk:1.6.2-slim'
+                implementation 'com.github.truid-ai.TruId-Android:sdk:1.7.0-slim'
                 //for networking
                 implementation 'com.amitshekhar.android:android-networking:1.0.2'
     
