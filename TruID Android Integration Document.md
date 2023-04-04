@@ -170,3 +170,91 @@ If you are using the fingerprint detection feature you can specify fingerprint o
 2. minimumNIST: The minimum NIST score. The user is prompted to retry if the scan was of a lower quaity than what was specified
 3. displayFingerprintResults: If set to true the user is shown the scan results before they move onto the next step
 
+## Integration for Flutter
+### Setting up Method Channels
+
+To set up method channels for communication between Flutter and Kotlin, follow these steps:
+
+1. Create a new method channel object in both Flutter and Kotlin code.
+
+```
+ static const platform = MethodChannel('samples.flutter.dev/truIdSDK');
+
+```
+2. Define the method calls for each channel and the corresponding callbacks.
+3. Use the `invokeMethod()` function to call methods from one codebase to the other.
+
+```
+  try {
+      final int result = await platform.invokeMethod('launchTruID');
+    } on PlatformException catch (e) {
+      print(e);
+    }
+```
+4. On the native side, this is the code to be added
+```
+    private val CHANNEL = "samples.flutter.dev/truIdSDK"
+
+    override fun configureFlutterEngine(@NonNull flutterEngine: FlutterEngine) {
+        super.configureFlutterEngine(flutterEngine)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL).setMethodCallHandler {
+            // This method is invoked on the main thread.
+                call, result ->
+            if (call.method == "launchTruID") {
+                launchTruID()
+                result.success("Success")
+            } else {
+                result.notImplemented()
+            }
+        }
+    }
+
+```
+
+
+### Adding TruID SDKs
+
+To add the TruID SDKs to the app, follow these steps:
+
+1. Add the necessary dependencies and configurations for the TruID SDKs in the Gradle files.
+
+```
+  dependencies {
+    implementation 'com.github.truid-ai.TruId-Android:sdk:1.7.1-slim'
+    implementation 'com.amitshekhar.android:android-networking:1.0.2'    
+}
+
+```
+
+### Handling MultiDex(in case it occurs)
+
+To handle MultiDex, follow these steps:
+
+1. Enable MultiDex in the Flutter project by adding the necessary dependencies and configurations to the Gradle files.
+
+```
+    dependencies{
+      implementation 'com.android.support:multidex:1.0.3'
+    }
+```
+
+2.In the `app.gradle` file, enable MultiDex by adding the following line to the `defaultConfig` section:
+
+```
+  defaultConfig {
+    multiDexEnabled true
+  }
+``` 
+
+### Flutter Activity Issue
+2. Use the `FlutterFragmentActivity` instead of `FlutterActivity` to enable embedding the Flutter view into an existing Android view hierarchy.
+
+To handle the Flutter activity issue, follow these steps:
+
+```
+class MainActivity : FlutterFragmentActivity() {
+    ...
+}   
+```
+By following these steps, you should be able to integrate the Flutter and Kotlin codebases using method channels for seamless communication and add the necessary TruID SDKs to authenticate and authorize users.
+
