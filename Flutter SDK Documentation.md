@@ -77,13 +77,6 @@ To set up method channels for communication between Flutter and Kotlin, follow t
 2. Define the method calls for each channel and the corresponding callbacks.
 3. Use the `invokeMethod()` function to call methods from one codebase to the other.
 
-### 4. Adding TruID SDKs
-
-To add the TruID SDKs to the app, follow these steps:
-
-1. Clone the private repository containing the TruID SDKs.
-2. Add the necessary dependencies and configurations for the TruID SDKs in the Gradle files.
-3. Use the TruID APIs to authenticate and authorize users in the app.
 
 ### 5. Handling MultiDex and Activity Issues
 
