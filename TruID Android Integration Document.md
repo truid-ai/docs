@@ -2,7 +2,7 @@
 
 You need to perform the following steps. 
 
-1. Add it in your root build.gradle at the end of repositories:
+1. Add it to your root build.gradle at the end of repositories:
 
     ```css
     allprojects {
@@ -51,7 +51,7 @@ You need to perform the following steps.
     android.enableJetifier=true
     ```
 
-4. Generate token using your API Key. Ideally this step should be performed on serverside. Here is a java snippet to give the idea of how to do it.
+4. Generate token using your API Key. Ideally, this step should be performed on the server side. Here is a Kotlin snippet to give an idea of how to do it.
     ```kotlin
     private fun generateToken(
       apiKey: String,
@@ -82,7 +82,7 @@ You need to perform the following steps.
         })
     }
     ```
-    Ideally this api call should be performed on your serverside and here it should be calling the server to keep the api key safe
+    Ideally, this api call should be performed on your serverside and here it should be calling the server to keep the API key safe
 
 5. Implement a result callback in your  activity
 
@@ -92,7 +92,7 @@ You need to perform the following steps.
         this,
         "Session ID: ${result.sessionID}, Status: ${result.verificationStatus}, Error: ${result.error}",
         Toast.LENGTH_LONG).show()
-        //result.errror is a String which contains error messages some of the error messages are:
+        //result.errror is a String that contains error messages if any error occurs while the SDK is running. some of the error messages are:
         //'Error while creating session'
         //'Configuration not found while creating session'
         //'Api not initialized'
@@ -120,7 +120,7 @@ You need to perform the following steps.
 
     
 
-6. Launch the activity by passing the generated token in it
+6. Launch the activity by passing the generated token into it
 
    ```kotlin
    fun launchTruID(){
@@ -169,10 +169,10 @@ You need to perform the following steps.
 
 You can also optionally enable or disable specific steps by passing boolean values. Furthermore you can disable help screens by passing false to the disableHelpScreen parameter.
 
-If you are using the fingerprint detection feature you can specify fingerprint options by passing it a FingerprintOptions object which takes the following paramters
-1. fingersToScan: Specify the fingers you want to scan. The options are RIGHT_THUMB, RIGHT_4_FINGERS, RIGHT_HAND, LEFT_THUMB, LEFT_4_FINGERS, LEFT_HAND. We assume you have passed false to the enableFingerSelection paramter in order to only allow the user to scan the specified fingers.
-2. minimumNIST: The minimum NIST score. The user is prompted to retry if the scan was of a lower quaity than what was specified
-3. displayFingerprintResults: If set to true the user is shown the scan results before they move onto the next step
+If you are using the fingerprint detection feature you can specify fingerprint options by passing it a FingerprintOptions object which takes the following parameters
+1. fingersToScan: Specify the fingers you want to scan. The options are RIGHT_THUMB, RIGHT_4_FINGERS, RIGHT_HAND, LEFT_THUMB, LEFT_4_FINGERS, LEFT_HAND. We assume you have passed false to the enableFingerSelection parameter to only allow the user to scan the specified fingers.
+2. minimumNIST: The minimum NIST score. The user is prompted to retry if the scan is of a lower quality than what was specified
+3. displayFingerprintResults: If set to true the user is shown the scan results before they move on to the next step
 
 ## Integration for Flutter
 ### Setting up Method Channels
