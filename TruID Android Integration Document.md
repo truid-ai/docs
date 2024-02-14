@@ -87,11 +87,15 @@ You need to perform the following steps.
 5. Implement a result callback in your  activity
 
     ```kotlin
-    private val authenticateUser = registerForActivityResult(AuthenticateWithTruID()) {
+    private val authenticateUser = registerForActivityResult(AuthenticateWithTruID()) { result ->
       Toast.makeText(
         this,
-        "Session ID: ${it.sessionID}, Status: ${it.verificationStatus}, Error: ${it.error}",
+        "Session ID: ${result.sessionID}, Status: ${result.verificationStatus}, Error: ${result.error}",
         Toast.LENGTH_LONG).show()
+        //result.errror is a String which contains error messages some of the error messages are:
+        //'Error while creating session'
+        //'Configuration not found while creating session'
+        //'Api not initialized'
     	//getting verification data here
       AndroidNetworking.get("https://release-api.truid.ai/sessions/${it.sessionID}/")
       .build()
