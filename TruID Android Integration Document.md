@@ -18,21 +18,13 @@ You need to perform the following steps.
 2. Add the dependency
     ```css
             dependencies {
-                implementation 'com.github.truid-ai.TruId-Android:sdk:1.7.1'
+                implementation 'com.github.truid-ai:android-sdk:1.1.2'
                 //for networking
-                implementation 'com.amitshekhar.android:android-networking:1.0.2'
+                implementation 'com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4'
     
             }
     ```
-    If you don't need the fingerprint capture functionality you can use the slim version of the sdk for small apk sizes
-    ```css
-            dependencies {
-                implementation 'com.github.truid-ai.TruId-Android:sdk:1.7.1-slim'
-                //for networking
-                implementation 'com.amitshekhar.android:android-networking:1.0.2'
-    
-            }
-    ```
+
 3. (Optional) You can enable native libs extraction for smaller apk sizes. 
     ```xml
     <application
@@ -151,8 +143,8 @@ You need to perform the following steps.
                       enableAgentVerification = false,
                       enableReportScreen = true,
                       displayHelpScreens = true,
-                      fingerprintOptions = FingerprintDetectionHandler.FingerprintOptions(
-                          fingersToScan = FingerprintDetectionHandler.FingersToScan.LEFT_HAND,
+                      fingerprintOptions = FingerprintOptions(
+                          fingersToScan = FingersToScan.LEFT_HAND,
                           minimumNIST = 40,
                           displayFingerprintResults = false
                       )
@@ -224,8 +216,8 @@ To add the TruID SDKs to the app, follow these steps:
 
 ```
   dependencies {
-    implementation 'com.github.truid-ai.TruId-Android:sdk:1.7.1-slim'
-    implementation 'com.amitshekhar.android:android-networking:1.0.2'    
+    implementation 'com.github.truid-ai:android-sdk:1.1.2'
+    implementation 'com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4'
 }
 
 ```
