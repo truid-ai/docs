@@ -124,31 +124,34 @@ You need to perform the following steps.
                     TruID.setPassedColor(21, 255, 161)
                     TruID.setFailedColor(249, 78, 78)
                     //passing token and configuring what steps to run here
-                    authenticateUser.launch(AuthenticateWithTruID.Input(
-                      token = token,
-                      enableFaceLiveness = true,
-                      enableOnDeviceLiveness = true,
-                      enableDocumentCapture = true,
-                      enableExtractData = true,
-                      enableDocumentAuthenticity = true,
-                      enableDocumentBacksideCapture = false,
-                      enableIDtoSelfieMatching = true,
-                      enableVerisysVerification = false,
-                      enableFingerSelection = false,
-                      enableFingerprintCapture = true,
-                      enablePersonalInformationVerification = false,
-                      enableMobileNumberVerification = false,
-                      enableUndertaking = false,
-                      enableAccountOptions = false,
-                      enableAgentVerification = false,
-                      enableReportScreen = true,
-                      displayHelpScreens = true,
-                      fingerprintOptions = FingerprintOptions(
-                          fingersToScan = FingersToScan.LEFT_HAND,
-                          minimumNIST = 40,
-                          displayFingerprintResults = false
-                      )
-                  ))
+                    authenticateUser.launch(
+            AuthenticateWithTruID.Input(
+                token = token,
+                enableFaceLiveness = false,
+                enableOnDeviceLiveness = false,
+                enableDocumentCapture = false,
+                enableExtractData = false,
+                enableDocumentAuthenticity = false,
+                enableDocumentBacksideCapture = false,
+                enableIDtoSelfieMatching = false,
+                enableVerisysVerification = false,
+                enableFingerSelection = false,
+                enableFingerprintCapture = true,
+                enablePersonalInformationVerification = false,
+                enableMobileNumberVerification = false,
+                enableUndertaking = false,
+                enableAccountOptions = false,
+                enableAgentVerification = false,
+                displayHelpScreens = true,
+                fingerprintOptions = FingerprintOptions(
+                    fingersToScan = FingersToScan.LEFT_4,
+                    minimumNIST = 40,
+                    displayFingerprintResults = false
+                ),
+                enableReportScreen = true,
+                disableLocationCapture = false,
+            )
+        )
    
                    },
        onError = { error ->
