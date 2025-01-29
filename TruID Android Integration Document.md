@@ -116,13 +116,14 @@ You need to perform the following steps.
 
    ```kotlin
    fun launchTruID(){
-     generateToken( //calling the function created in previous step
+     generateToken( //calling the function created in the previous step
        apiKey = "<API Key goes here>",
        onSuccess = { token ->
                     //setting theme color here
                     TruID.setThemeColor(96, 22, 235)
                     TruID.setPassedColor(21, 255, 161)
                     TruID.setFailedColor(249, 78, 78)
+                    TruID.setAPILink("https://release-api.truid.ai")  // or use URL of on premise server
                     //passing token and configuring what steps to run here
                     authenticateUser.launch(
             AuthenticateWithTruID.Input(
