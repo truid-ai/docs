@@ -214,28 +214,16 @@
 					"card": "SmartCNIC",
 					"ocr_retries": 1,
 					"extracted_data": {
-						"Name": "Mahad Majeed",
-						"names": [
-							"chauhdry",
-							"ahmed",
-							"abbassi",
-							"jibran",
-							"nasir"
-						],
-						"Gender": "M",
-						"cities": [
-							"bahawalpur",
-							"hyderabad",
-							"karachi",
-							"multan",
-							"sukkur"
-						],
-						"Father Name": "Sh Abid Majeed",
-						"Date of Birth": "27.01.1994",
-						"Date of Issue": "18.11.2018",
-						"Date of Expiry": "18.11.2028",
-						"Country of Stay": "Pakistan",
-						"Identity Number": "31202-3218074-9"
+						"Name": "string",
+						"Gender": "string",
+						"Father Name": "string",
+						"Date of Birth": "string",
+						"Date of Issue": "string",
+						"Date of Expiry": "string",
+						"Country of Stay": "string",
+						"Identity Number": "string",
+                                                "Permanent Address": "string",
+                                                "Temporary Address": "string"
 					},
 					"document_report": {
 						"key": "data_validation",
