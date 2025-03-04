@@ -52,7 +52,7 @@ You need to perform the following steps.
     ) {
       val defaultErrorMessage = "Error while generating token."
     
-        AndroidNetworking.post("https://release-api.truid.ai/generate-token/")
+        AndroidNetworking.post("https://staging-api.truid.ai/generate-token/")
         .addHeaders("Authorization", "Api-Key $apiKey")
         .setTag("get-token")
         .setPriority(Priority.HIGH)
@@ -89,7 +89,7 @@ You need to perform the following steps.
         //'Configuration not found while creating session'
         //'Api not initialized'
     	//getting verification data here
-      AndroidNetworking.get("https://release-api.truid.ai/sessions/${it.sessionID}/")
+      AndroidNetworking.get("https://staging-api.truid.ai/sessions/${it.sessionID}/")
       .build()
       .getAsJSONObject(object: JSONObjectRequestListener {
         override fun onResponse(response: JSONObject?) {
@@ -123,7 +123,7 @@ You need to perform the following steps.
                     TruID.setThemeColor(96, 22, 235)
                     TruID.setPassedColor(21, 255, 161)
                     TruID.setFailedColor(249, 78, 78)
-                    TruID.setAPILink("https://release-api.truid.ai")  // or use URL of on premise server
+                    TruID.setAPILink("https://staging-api.truid.ai")  // or use URL of on premise server
                     //passing token and configuring what steps to run here
                     authenticateUser.launch(
             AuthenticateWithTruID.Input(
