@@ -18,7 +18,7 @@ You need to perform the following steps.
 2. Add the dependency
     ```css
             dependencies {
-                implementation 'com.github.truid-ai:android-sdk:1.1.4'
+                implementation 'com.github.truid-ai:android-sdk:1.1.5'
                 //for networking
                 implementation 'com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4'
     
