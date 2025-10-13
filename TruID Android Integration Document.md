@@ -220,7 +220,7 @@ To add the TruID SDKs to the app, follow these steps:
 
 ```
   dependencies {
-    implementation 'com.github.truid-ai:android-sdk:1.1.2'
+    implementation 'com.github.truid-ai:android-sdk:1.2.4'
     implementation 'com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4'
 }
 
