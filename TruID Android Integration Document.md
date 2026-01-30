@@ -18,7 +18,7 @@ You need to perform the following steps.
 2. Add the dependency
     ```css
             dependencies {
-                implementation 'com.github.truid-ai:android-sdk:1.2.4'
+                implementation 'com.github.truid-ai:android-sdk-main:1.0.1'
                 //for networking
                 implementation 'com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4'
     
@@ -220,7 +220,7 @@ To add the TruID SDKs to the app, follow these steps:
 
 ```
   dependencies {
-    implementation 'com.github.truid-ai:android-sdk:1.2.4'
+    implementation 'com.github.truid-ai:android-sdk-main:1.0.1'
     implementation 'com.github.amitshekhariitbhu.Fast-Android-Networking:android-networking:1.0.4'
 }
 
