@@ -3,7 +3,7 @@
 
 -   Session data can be queried using this endpoing.
 	``` curl
-	curl --location --request GET 'https://release-api.truid.ai/sessions/<session-id>' --header 'Authorization: Api-Key <API-KEY goes here>'
+	curl --location --request GET '<truID backend URL>/sessions/<session-id>' --header 'Authorization: Api-Key <API-KEY goes here>'
 	```
 	This returns the session object, the structure of which is 
 	``` json
@@ -255,7 +255,6 @@
 		"authentication_video": null,
 		"id": 5245,
 		"time_consumed": "161.634052",
-		"client_redirect_url": "https://release.truid.ai/test?client=ssdoNIiD.dikVmlPmc2t1HSd4SnZhFtAXuyBxDh7o",
 		"meta": "meta"
 	}
 	```
